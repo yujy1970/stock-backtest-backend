@@ -1,39 +1,52 @@
+# === Maven / Gradle build output ===
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-.kotlin
-
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
-*.iml
-*.ipr
-
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
+# === Logs ===
+*.log
+logs/
+spring.log
+
+# === Temporary files ===
+*.tmp
+*.bak
+*.swp
+*.swo
+*.orig
+*.out
+
+# === IDE / Editor config ===
+.idea/
 .vscode/
+*.iml
+.project
+.classpath
+.settings/
 
-### Mac OS ###
+# === OS generated files ===
 .DS_Store
+Thumbs.db
+Desktop.ini
+
+# === Environment / Secrets ===
+.env
+.env.*
+*.properties.local
+application-local.properties
+application-dev.properties
+application-test.properties
+
+# === Uploaded / runtime data ===
+data/
+uploads/
+temp/
+tmp/
+
+# === Maven Wrapper (optional, keep if you plan to use it) ===
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+mvnw.cmd
+mvnw
+
+# === Render build cache ===
+.render-build/
