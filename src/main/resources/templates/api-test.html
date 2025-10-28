@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>API 测试页面</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .test-case { margin: 20px 0; padding: 15px; border: 1px solid #ddd; }
+        button { padding: 10px 15px; margin: 5px; }
+        pre { background: #f5f5f5; padding: 10px; overflow: auto; }
+    </style>
+</head>
+<body>
+<h1>API 测试页面</h1>
+
+<div class="test-case">
+    <h3>测试服务状态</h3>
+    <button onclick="testStatus()">测试 /status</button>
+    <pre id="status-result"></pre>
+</div>
+
+<div class="test-case">
+    <h3>测试图表数据</h3>
+    <button onclick="testChartData('cn')">测试中国数据</button>
+    <button onclick="testChartData('us')">测试美国数据</button>
+    <button onclick="testChartData('hk')">测试香港数据</button>
+    <pre id="chart-data-result"></pre>
+</div>
+
+<script>
+    async function testStatus() {
+        try {
+            const response = await fetch('/status');
+            const data = await response.json();
+            document.getElementById('status-result').textContent = JSON.stringify(data, null, 2);
+        } catch (error) {
+            document.getElementById('status-result').textContent = '错误: ' + error;
+        }
+    }
+
+    async function testChartData(market) {
+        try {
+            const response = await fetch('/api/chart-data/' + market);
+            const data = await response.json();
+            document.getElementById('chart-data-result').textContent =
+                market.toUpperCase() + ' 市场数据:\n' + JSON.stringify(data, null, 2);
+        } catch (error) {
+            document.getElementById('chart-data-result').textContent = '错误: ' + error;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>股票回溯策略分析系统 - 后端服务</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        .status {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .api-list {
+            display: grid;
+            gap: 15px;
+        }
+        .api-item {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+        .method {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+        .method.get { background: #2196F3; }
+        .method.post { background: #4CAF50; }
+        .url {
+            font-family: 'Courier New', monospace;
+            background: rgba(0,0,0,0.2);
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin: 10px 0;
+            display: block;
+        }
+        .description {
+            color: #e0e0e0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 股票回溯策略分析系统</h1>
+        
+        <div class="status">
+            <h2>✅ 后端服务运行正常</h2>
+            <p>Spring Boot 应用已成功启动，Tomcat 服务器正在运行。</p>
+            <p><strong>服务地址:</strong> http://localhost:8080</p>
+            <p><strong>前端地址:</strong> http://localhost:3000</p>
+        </div>
+
+        <h2>📡 可用 API 接口</h2>
+        <div class="api-list">
+            <div class="api-item">
+                <span class="method get">GET</span>
+                <strong>图表数据接口</strong>
+                <span class="url">/api/chart-data/{market}</span>
+                <div class="description">
+                    获取指定市场的股票指数和资金增长数据<br>
+                    <strong>参数:</strong> market = cn(中国) | us(美国) | hk(香港)<br>
+                    <strong>示例:</strong> 
+                    <a href="/api/chart-data/cn" style="color: #80deea;">/api/chart-data/cn</a>
+                </div>
+            </div>
+
+            <div class="api-item">
+                <span class="method post">POST</span>
+                <strong>文件上传接口</strong>
+                <span class="url">/upload/{market}/{fileType}</span>
+                <div class="description">
+                    上传股票数据文件或资金增长曲线文件<br>
+                    <strong>参数:</strong> market = cn | us | hk<br>
+                    <strong>参数:</strong> fileType = 文件类型标识
+                </div>
+            </div>
+
+            <div class="api-item">
+                <span class="method get">GET</span>
+                <strong>服务状态</strong>
+                <span class="url">/status</span>
+                <div class="description">
+                    检查服务健康状态和系统信息
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; text-align: center; opacity: 0.8;">
+            <p>💡 <strong>下一步:</strong> 启动前端服务访问完整功能界面</p>
+            <p>在 frontend 目录运行: <code>npm run dev</code></p>
+        </div>
+    </div>
+</body>
+</html>

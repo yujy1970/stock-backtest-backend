@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">股票回溯策略系统</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 { color: #333; }
+        .status {
+            background: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${title}">股票回溯策略系统</h1>
+    <div class="status" th:text="${message}">后端服务运行正常</div>
+
+    <h2>可用端点：</h2>
+    <ul>
+        <li><a href="/">/ - 主页 (JSON)</a></li>
+        <li><a href="/status">/status - 系统状态</a></li>
+        <li><a href="/test">/test - 测试页面</a></li>
+        <li><a href="/home">/home - Thymeleaf 主页</a></li>
+        <li><a href="/dashboard">/dashboard - 仪表板</a></li>
+        <li><a href="/api/chart-data/cn">/api/chart-data/cn - 中国数据</a></li>
+    </ul>
+
+    <h2>下一步：</h2>
+    <p>启动前端服务：<code>cd frontend && npm run dev</code></p>
+    <p>然后访问：<a href="http://localhost:3000">http://localhost:3000</a></p>
+</div>
+</body>
+</html>
