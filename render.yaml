@@ -4,11 +4,10 @@ services:
     env: docker
     plan: free
     region: oregon
-    dockerfilePath: backend/Dockerfile
-    dockerContext:   backend
-    # healthCheckPath: /actuator/health
+    dockerfilePath: Dockerfile
+    dockerContext: .
     autoDeploy: true
+    # healthCheckPath: /actuator/health   # 有 Actuator 再开启
     envVars:
       - key: JAVA_TOOL_OPTIONS
         value: -XX:MaxRAMPercentage=70.0
-
