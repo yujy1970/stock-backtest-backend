@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: stock-backtest-backend
+    runtime: docker           # 明确用 Docker 运行时
+    plan: free                # 免费实例
+    region: oregon            # 可改 virginia/frankfurt 等
+    # monorepo 关键：指向后端子目录的 Dockerfile 与构建上下文
+    dockerfilePath: stock-backtest-system/backend/Dockerfile
+    dockerContext:   stock-backtest-system/backend
+    healthCheckPath: /actuator/health    # 如果没接 actuator，可以先去掉或换 /api/ping
+    envVars:
+      - key: JAVA_TOOL_OPTIONS
+        value: -XX:MaxRAMPercentage=70.0

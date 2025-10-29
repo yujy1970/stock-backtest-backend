@@ -44,9 +44,9 @@ tmp/
 
 # === Maven Wrapper (optional, keep if you plan to use it) ===
 !.mvn/wrapper/maven-wrapper.jar
-.mvn/wrapper/maven-wrapper.properties
-mvnw.cmd
-mvnw
+!.mvn/wrapper/maven-wrapper.properties
+!mvnw.cmd
+!mvnw
 
 # === Render build cache ===
 .render-build/
